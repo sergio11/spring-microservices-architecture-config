@@ -1,15 +1,6 @@
 server:  
   port: ${EUREKA_SERVER_PORT:1111}   # HTTP port
-
-logging:  
-  file: logs/${spring.application.name}.log
-  level:
-    com.netflix.discovery: 'OFF'
-    org.springframework.cloud: 'INFO'
-	org.springframework.web: 'INFO'
-    com.microservices: 'DEBUG'
-
-# Configure this Discovery Server
+#Eureka Config
 eureka:
   instance:
     hostname: localhost
@@ -19,8 +10,21 @@ eureka:
     fetchRegistry: false
   server:
     enableSelfPreservation: false
-
+    
 # Discovery Server Dashboard uses FreeMarker.  Don't want Thymeleaf templates
 spring:
   thymeleaf:
-enabled: false     # Disable Thymeleaf 
+    enabled: false     # Disable Thymeleaf 
+    
+logging:  
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'INFO'
+    org.springframework.web: 'INFO'
+    com.microservices: 'DEBUG'
+
+
+
+
+
