@@ -49,6 +49,7 @@ spring:
       clientId: client
       clientSecret: secret
     resource: 
+      tokenInfoUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/me
       userInfoUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/me
       preferTokenInfo: false 
 # The userInfoUri is used to authenticate the user so that SSO token can be relayed forward. It needs to either be
