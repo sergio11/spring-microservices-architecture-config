@@ -1,46 +1,35 @@
 server:
   port: 8761
-#Eureka Config
+  
+spring:
+  profiles.default: default
+---
+spring:
+  profiles: default
 eureka:
   instance:
     hostname: localhost
     prefer-ip-address: true
-  client:  # Not a client, don't register with yourself
+  client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-    
-
-spring:
-  # Discovery Server Dashboard uses FreeMarker.  Don't want Thymeleaf templates
-  thymeleaf:
-    enabled: false     # Disable Thymeleaf 
-  
-logging:  
+logging:
   file: logs/${spring.application.name}.log
   level:
     com.netflix.discovery: 'OFF'
-    org.springframework.cloud: 'INFO'
-    org.springframework.web: 'INFO'
-    com.microservices: 'DEBUG'
-    
+    org.springframework.cloud: INFO
+    org.springframework.web: INFO
+    com.microservices: DEBUG
 ---
 spring:
   profiles: docker
- 
- eureka:
-   instance:
-     hostname: docker
-   client:
-     registerWithEureka: false
-     fetchRegistry: false
-     serviceUrl:
-       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ 
- 
-
-
-
-
-
-
+eureka:
+  instance:
+    hostname: docker
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
