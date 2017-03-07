@@ -16,16 +16,7 @@ spring:
   # Discovery Server Dashboard uses FreeMarker.  Don't want Thymeleaf templates
   thymeleaf:
     enabled: false     # Disable Thymeleaf 
-  profiles: docker
-    eureka:
-      instance:
-        hostname: docker
-      client:
-        registerWithEureka: false
-        fetchRegistry: false
-        serviceUrl:
-         defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ 
- 
+  
 logging:  
   file: logs/${spring.application.name}.log
   level:
@@ -33,6 +24,21 @@ logging:
     org.springframework.cloud: 'INFO'
     org.springframework.web: 'INFO'
     com.microservices: 'DEBUG'
+    
+---
+spring:
+  profiles: docker
+ 
+ eureka:
+   instance:
+     hostname: docker
+   client:
+     registerWithEureka: false
+     fetchRegistry: false
+     serviceUrl:
+       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ 
+ 
+
 
 
 
