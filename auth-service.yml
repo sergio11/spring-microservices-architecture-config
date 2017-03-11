@@ -22,12 +22,11 @@ security:
 # Datasource and JPA configuration to be used for storing the OAuth authorization details 
 # and token store
 datasource:
-  url: jdbc:mysql://192.168.99.100:3306/auth
-  username: root
-  password: password
-  driver-class: com.mysql.jdbc.Driver
+  url: jdbc:h2:mem:testdb
+  username: sa
+  driver-class: org.h2.Driver
 jpa:
-  database-platform: org.hibernate.dialect.MySQLDialect
+  database-platform: org.hibernate.dialect.H2Dialect
   show-sql: false
   hibernate:
     ddl-auto: create
