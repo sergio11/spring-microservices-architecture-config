@@ -27,9 +27,9 @@ datasource:
   driver-class: org.h2.Driver
 jpa:
   database-platform: org.hibernate.dialect.H2Dialect
-  show-sql: false
+  show-sql: true
   hibernate:
-    ddl-auto: create
+    ddl-auto: create-drop
 
 logging:
   file: logs/${spring.application.name}.log
