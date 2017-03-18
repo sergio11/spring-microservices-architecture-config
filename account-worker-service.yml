@@ -1,0 +1,40 @@
+server:
+  port: 8762
+  
+spring:
+  profiles.default: default
+---
+spring:
+  profiles: default
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: account
+          group: account-group
+          contentType: 'application/json'
+          consumer:
+            durableSubscription: true
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: INFO
+    org.springframework.web: INFO
+    com.microservices: DEBUG
+---
+spring:
+  profiles: docker
+eureka:
+# Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
+# one and the same hostname. Instead we configure them to use its IP address during registration with Eureka.
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-service/eureka/
