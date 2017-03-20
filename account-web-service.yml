@@ -12,6 +12,12 @@ spring:
         output:
           destination: account
           contentType: 'application/json'
+# RabbitMQ configuration
+spring:
+  rabbitmq:
+    host: 192.168.0.31
+    username: sergio11
+    password: bisite00
 # Datasource and JPA configuration to be used for storing the OAuth authorization details 
 # and token store
 datasource:
