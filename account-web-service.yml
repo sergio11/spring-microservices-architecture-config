@@ -9,7 +9,7 @@ spring:
   # RabbitMQ configuration
   rabbitmq:
     host: 192.168.0.31
-    username: sergio11
+    username: account-web
     password: bisite00
   cloud:
     stream:
