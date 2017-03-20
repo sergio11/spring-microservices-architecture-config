@@ -6,6 +6,11 @@ spring:
 ---
 spring:
   profiles: default
+  # RabbitMQ configuration
+  rabbitmq:
+    host: 192.168.0.31
+    username: sergio11
+    password: bisite00
   cloud:
     stream:
       bindings:
@@ -15,12 +20,6 @@ spring:
           contentType: 'application/json'
           consumer:
             durableSubscription: true
-# RabbitMQ configuration
-spring:
-  rabbitmq:
-    host: 192.168.0.31
-    username: sergio11
-    password: bisite00
 # Discovery Server Access
 eureka:
   client:
