@@ -41,6 +41,7 @@ logging:
     org.springframework.cloud: DEBUG
     org.springframework.web: DEBUG
     org.springframework.security: DEBUG
+    org.springframework.data: DEBUG
     sanchez.sergio: DEBUG
     
 ---
