@@ -33,6 +33,11 @@ jpa:
 
 logging:
   file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: DEBUG
+    org.springframework.web: DEBUG
+    sanchez.sergio: DEBUG
     
 ---
 spring:
