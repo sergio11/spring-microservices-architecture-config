@@ -25,7 +25,7 @@ security:
 # Datasource and JPA configuration to be used for storing the OAuth authorization details 
 # and token store
 datasource:
-  url: jdbc:h2:mem:testdb
+  url: jdbc:h2:mem:testdb;MV_STORE=FALSE;MVCC=FALSE
   username: sa
   driver-class: org.h2.Driver
 jpa:
