@@ -37,9 +37,9 @@ logging:
   file: logs/${spring.application.name}.log
   level:
     com.netflix.discovery: 'OFF'
-    org.springframework.cloud: INFO
-    org.springframework.web: INFO
-    com.microservices: DEBUG
+    org.springframework.cloud: DEBUG
+    org.springframework.web: DEBUG
+    sanchez.sergio: DEBUG
 ---
 spring:
   profiles: docker
