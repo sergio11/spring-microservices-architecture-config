@@ -40,6 +40,7 @@ logging:
     com.netflix.discovery: 'OFF'
     org.springframework.cloud: DEBUG
     org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
     sanchez.sergio: DEBUG
     
 ---
