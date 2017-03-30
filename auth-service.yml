@@ -25,12 +25,16 @@ security:
 # Datasource and JPA configuration to be used for storing the OAuth authorization details 
 # and token store
 datasource:
-  platform: h2
+  type: com.zaxxer.hikari.HikariDataSource
   url: jdbc:h2:mem:testdb;MODE=MySQL;MV_STORE=FALSE;MVCC=FALSE
   username: sa
   driver-class: org.h2.Driver
+h2:
+  console:
+    enabled: true
 jpa:
   database-platform: org.hibernate.dialect.H2Dialect
+  database: H2
   show-sql: true
   hibernate:
     ddl-auto: create-drop
@@ -43,7 +47,7 @@ logging:
     org.springframework.web: DEBUG
     org.springframework.security: DEBUG
     org.springframework.data: DEBUG
-    org.hibernate: DEBUG
+    org.hibernate.SQL: DEBUG
     sanchez.sergio: DEBUG
     
 ---
@@ -52,15 +56,26 @@ spring:
 # Datasource and JPA configuration to be used for storing the OAuth authorization details 
 # and token store
 datasource:
+  type: com.zaxxer.hikari.HikariDataSource
   url: jdbc:mysql://mysql-service/auth
   username: root
   password: root
+  hikari:
+    data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
   driver-class: com.mysql.jdbc.Driver
 jpa:
-  database-platform: org.hibernate.dialect.MySQLDialect
-  show-sql: false
-  hibernate:
-    ddl-auto: create
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: MYSQL
+    show-sql: false
+    properties:
+        hibernate.id.new_generator_mappings: true
+        hibernate.cache.use_second_level_cache: false
+        hibernate.cache.use_query_cache: false
+        hibernate.generate_statistics: false
 eureka:
 # Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
 # one and the same hostname. Instead we configure them to use its IP address during registration with Eureka.
