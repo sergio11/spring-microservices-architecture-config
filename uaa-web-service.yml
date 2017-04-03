@@ -1,18 +1,12 @@
-# We need to setup different context root for the auth server so that we can store separate
-# cookies for both the API gateway as well as the OAuth2 authorization server.
-# HTTP Server
 server:
   port: 8183   # HTTP port
-  contextPath: /userauth 
+  contextPath: /uaa 
   
 spring:
-  profiles.default: default  
+  profiles.default: default
 ---
 spring:
     profiles: default
-    security:
-        basic:
-            enabled: false
     # Datasource and JPA configuration to be used for storing the OAuth authorization details 
     # and token store
     datasource:
@@ -31,6 +25,18 @@ spring:
             naming:
                 physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
                 implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    # RabbitMQ configuration
+    rabbitmq:
+        host: 192.168.0.31
+        username: account-web
+        password: bisite00
+    cloud:
+        stream:
+            bindings:
+                output:
+                    destination: account
+                    contentType: 'application/json'
+
 # Discovery Server Access
 eureka:
     instance:
@@ -39,18 +45,13 @@ eureka:
     client:
         serviceUrl:
             defaultZone: http://localhost:8761/eureka/
-   
 logging:
   file: logs/${spring.application.name}.log
   level:
     com.netflix.discovery: 'OFF'
     org.springframework.cloud: DEBUG
     org.springframework.web: DEBUG
-    org.springframework.security: DEBUG
-    org.springframework.data: DEBUG
-    org.hibernate.SQL: DEBUG
     sanchez.sergio: DEBUG
-    
 ---
 spring:
   profiles: docker
