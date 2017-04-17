@@ -8,8 +8,8 @@ spring:
   profiles: default
   # RabbitMQ configuration
   rabbitmq:
-    host: 192.168.0.31
-    username: account-worker
+    host: localhost
+    username: sergio
     password: bisite00
   cloud:
     stream:
