@@ -27,7 +27,7 @@ spring:
                 implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
     # RabbitMQ configuration
     rabbitmq:
-        host: localhost
+        host: 192.168.0.53
         username: sergio11
         password: bisite00
     cloud:
