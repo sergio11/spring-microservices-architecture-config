@@ -13,3 +13,6 @@ rabbitmq:
   alternate-exchange:
     name: users_alt.fanout
     queue: users_alt
+  deadletters-exchange:
+    name: deadletters.fanout
+    queue: deadletters
