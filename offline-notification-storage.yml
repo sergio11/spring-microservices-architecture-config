@@ -1,0 +1,13 @@
+server:
+  port: 8761
+  
+spring:
+  profiles.default: default
+---
+
+rabbitMQConfig:
+  alternateExchangeName: users_alt.fanout
+  alternateQueueName: users_alt
+  brokerHost: localhost
+  brokerUsername: guest
+  brokerPassword: guest
