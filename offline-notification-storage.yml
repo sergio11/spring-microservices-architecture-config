@@ -4,7 +4,8 @@ server:
 spring:
   profiles.default: default
 ---
-
+spring:
+  profiles: default
 rabbitMQConfig:
   alternateExchangeName: users_alt.fanout
   alternateQueueName: users_alt
