@@ -31,6 +31,7 @@ spring:
                 output:
                     destination: users.direct
                     binder: rabbit1
+                    exchangeType: direct
             binders:
                 rabbit1:
                     type: rabbit
