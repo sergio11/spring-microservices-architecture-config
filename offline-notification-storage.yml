@@ -6,6 +6,24 @@ spring:
 ---
 spring:
   profiles: default
+  # Datasource and JPA configuration to be used for storing the OAuth authorization details 
+    # and token store
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:h2:mem:testdb;MODE=MySQL;MV_STORE=FALSE;MVCC=FALSE
+        username: sa
+        driver-class: org.h2.Driver
+    h2:
+        console:
+            enabled: true
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        database: H2
+        hibernate:
+            ddl-auto: none
+            naming:
+                physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+                implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
 rabbitmq:
   host: localhost
   username: guest
