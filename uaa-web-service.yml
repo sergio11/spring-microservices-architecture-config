@@ -25,18 +25,23 @@ spring:
             naming:
                 physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
                 implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
-    # RabbitMQ configuration
-    rabbitmq:
-        host: 192.168.0.53
-        username: sergio
-        password: bisite00
     cloud:
         stream:
             bindings:
                 output:
-                    destination: account
-                    contentType: 'application/json'
-
+                    destination: users.direct
+                    binder: rabbit1
+            binders:
+                rabbit1:
+                    type: rabbit
+                    environment:
+                        spring:
+                            rabbitmq:
+                                host: localhost
+                                port: 5672
+                                username: guest
+                                password: guest
+                                virtual-host: /
 # Discovery Server Access
 eureka:
     instance:
