@@ -34,7 +34,7 @@ spring:
                         binder: rabbit1
                         producer:
                             exchangeType: direct
-                            routingKeyExpression: 'user-12345'
+                            routingKeyExpression: user-12345
                             declareExchange: false
                 binders:
                     rabbit1:
