@@ -28,8 +28,9 @@ spring:
     cloud:
         stream:
             bindings:
-                user.notifications:
+                userNotifications:
                     destination: users.direct
+                    contentType: application/json
                     binder: rabbit1
                     producer:
                         exchangeType: direct
