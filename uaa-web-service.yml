@@ -29,7 +29,7 @@ spring:
         stream:
             rabbit:
                 bindings:
-                    output:
+                    user.notifications:
                         destination: users.direct
                         binder: rabbit1
                         producer:
