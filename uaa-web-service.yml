@@ -32,7 +32,10 @@ spring:
                     destination: users.direct
                     contentType: application/json
                     binder: rabbit1
-                    producer:
+            rabbit:
+                bindings:
+                    userNotifications:
+                        producer:
                         exchangeType: direct
                         routingKeyExpression: '12345'
                         declareExchange: false
