@@ -36,9 +36,9 @@ spring:
                 bindings:
                     userNotifications:
                         producer:
-                        exchangeType: direct
-                        routingKeyExpression: '12345'
-                        declareExchange: false
+                            exchangeType: direct
+                            routingKeyExpression: '12345'
+                            declareExchange: false
             binders:
                 rabbit1:
                     type: rabbit
