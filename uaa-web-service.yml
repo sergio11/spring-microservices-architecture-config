@@ -27,10 +27,11 @@ spring:
                 implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
     cloud:
         stream:
+            default:
+                contentType: application/json
             bindings:
                 userNotifications:
                     destination: users.direct
-                    contentType: application/json
                     binder: rabbit1
             rabbit:
                 bindings:
