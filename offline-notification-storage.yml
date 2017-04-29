@@ -34,3 +34,12 @@ rabbitmq:
   deadletters-exchange:
     name: deadletters.fanout
     queue: deadletters
+swagger:
+  group-name: notifications
+  path-mapping: /
+  api-info:
+    title: Notification Module
+    description: notification-web application provides a REST API for get notifications
+    version: 0.0.1-SNAPSHOT
+    license: Open source licensing
+    license-url: https://help.github.com/articles/open-source-licensing/
