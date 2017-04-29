@@ -66,6 +66,15 @@ logging:
     org.springframework.cloud: DEBUG
     org.springframework.web: DEBUG
     sanchez.sergio: DEBUG
+swagger:
+  group-name: account
+  path-mapping: /
+  api-info:
+    title: Account web module
+    description: account-web application provides a hypermedia-driven REST API for managing accounts
+    version: 0.0.1-SNAPSHOT
+    license: Open source licensing
+    license-url: https://help.github.com/articles/open-source-licensing/
 ---
 spring:
   profiles: docker
