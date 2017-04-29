@@ -36,9 +36,10 @@ rabbitmq:
     queue: deadletters
   admin-exchange:
     name: admin.topic
-    -
-      name: users_manadgement
-      routing-key: admin.user
+    queues:
+      -
+        name: users_manadgement
+        routing-key: admin.user
 
 swagger:
   group-name: notifications
