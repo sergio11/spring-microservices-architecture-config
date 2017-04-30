@@ -42,9 +42,14 @@ rabbitmq:
         routing-key: admin.user
   direct-exchange:
     name: users.direct
-    message-ttl: 8640000
-    expires: 86400000
-    dead-letter-exchange: deadletters.fanout
+    durable: true
+    auto-delete: false
+    arguments:
+      alternate-exchange: users_alt.fanout
+    queue-arguments:
+      x-message-ttl: 8640000
+      x-expires: 86400000
+      x-dead-letter-exchange: deadletters.fanout
 
 swagger:
   group-name: notifications
