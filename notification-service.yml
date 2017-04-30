@@ -40,6 +40,11 @@ rabbitmq:
       users:
         name: users_manadgement
         routing-key: admin.user
+  direct-exchange:
+    name: users.direct
+    message-ttl: 8640000
+    expires: 86400000
+    dead-letter-exchange: deadletters.fanout
 
 swagger:
   group-name: notifications
