@@ -37,7 +37,7 @@ rabbitmq:
   admin-exchange:
     name: admin.topic
     queues:
-      -
+      users:
         name: users_manadgement
         routing-key: admin.user
 
