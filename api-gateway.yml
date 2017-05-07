@@ -6,15 +6,14 @@ server:
 authserver:
     hostname: localhost
     port: 8183
-    contextPath: userauth
+    contextPath: uaa
 
 zuul:
   routes:
-    account-web-service: /api/user/**
-    user: 
-      path: /api/loggedinuser/**
-      stripPrefix: true
-      url: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}
+    accounts:
+      path: /v1/accounts/**
+      serviceId: uaa-web-service
+      stripPrefix: false
 # Discovery Server Access
 eureka:
   client:
@@ -41,9 +40,10 @@ spring:
       clientId: client
       clientSecret: secret
     resource: 
-      tokenInfoUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/me
-      userInfoUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/me
-      preferTokenInfo: false 
+      jwt:
+        # Tells the JWT framework to fetch the public key from the authorization server during startup
+        # Note: The authorization server needs to be running...
+        key-uri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token_key
 # The userInfoUri is used to authenticate the user so that SSO token can be relayed forward. It needs to either be
 # a physical endpoint (defined using userInfoUri) OR can be bypassed if you use a JSON web token (JWT) that stores
 # information about grants and authentication in the token itself.
