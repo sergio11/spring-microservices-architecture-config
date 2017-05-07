@@ -1,17 +1,16 @@
 # Define the port where the API gateway server would be running
 server:
+  hostname: localhost
   port: 8765
-
-# The OAuth2 server definition that would be used to send the authorization requests to
-authserver:
-    hostname: localhost
-    port: 8183
-    contextPath: uaa
 
 zuul:
   routes:
     accounts:
-      path: /v1/accounts/**
+      path: /uaa/v1/accounts/**
+      serviceId: uaa-web-service
+      stripPrefix: false
+    uaa:
+      path: /uaa/oauth/**
       serviceId: uaa-web-service
       stripPrefix: false
 # Discovery Server Access
@@ -29,21 +28,24 @@ eureka:
 # Remaining properties are used by the OAuth2 SSO to determine where the authorization server is and
 # what client crendentials to use to access that server.
 spring:
+  # Disable Spring Boot basic authentication
+  basic:
+    enabled: false
   oauth2:
     sso:
       home:
         secure: false
         path: /,/**/*.html
     client:
-      accessTokenUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token
-      userAuthorizationUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/authorize
+      accessTokenUri: http://${server.hostname}:${server.port}/uaa/token
+      userAuthorizationUri: http://${server.hostname}:${server.port}/uaa/authorize
       clientId: client
       clientSecret: secret
     resource: 
       jwt:
         # Tells the JWT framework to fetch the public key from the authorization server during startup
         # Note: The authorization server needs to be running...
-        key-uri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token_key
+        key-uri: http://${server.hostname}:${server.port}/uaa/token_key
 # The userInfoUri is used to authenticate the user so that SSO token can be relayed forward. It needs to either be
 # a physical endpoint (defined using userInfoUri) OR can be bypassed if you use a JSON web token (JWT) that stores
 # information about grants and authentication in the token itself.
