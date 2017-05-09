@@ -7,6 +7,9 @@ spring:
 ---
 spring:
     profiles: default
+    # Disable Spring Boot basic authentication
+    basic:
+        enabled: false
     # Datasource and JPA configuration to be used for storing the OAuth authorization details 
     # and token store
     datasource:
