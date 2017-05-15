@@ -50,7 +50,9 @@ rabbitmq:
       x-message-ttl: 8640000
       x-expires: 86400000
       x-dead-letter-exchange: deadletters.fanout
-
+fcm:
+  notification-groups-url: https://android.googleapis.com/gcm/notification
+  notification-send-url: https://fcm.googleapis.com/fcm/send
 swagger:
   group-name: notifications
   path-mapping: /
@@ -60,3 +62,7 @@ swagger:
     version: 0.0.1-SNAPSHOT
     license: Open source licensing
     license-url: https://help.github.com/articles/open-source-licensing/
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    org.springframework.security: DEBUG
