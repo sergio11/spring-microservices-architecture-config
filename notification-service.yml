@@ -66,3 +66,4 @@ logging:
   file: logs/${spring.application.name}.log
   level:
     org.springframework.security: DEBUG
+    sanchez.sergio: DEBUG
