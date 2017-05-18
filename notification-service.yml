@@ -51,6 +51,7 @@ rabbitmq:
       x-expires: 86400000
       x-dead-letter-exchange: deadletters.fanout
 fcm:
+  app-server-key: '{cipher}AgA26CeoySn8OnpKekGLoXRfu2biFae6CeTzNVLXiybbk5LucjWYbTkWFazvGnhv96JTvvvN/8a2lK236x3ETvW9yY3j3eb8pyQJxjLPRSqOrEhdQQmOhOJvK2YKFeRbQZk4/amnKyUskZ89dWO2JtAU7GkO2Shx4ToabulMDUD97wR1Jrse5/kVHGBTbm6Hy4+MRcPbEoOMfbMthoO7ZSV6f74v3ZmjU2zd66ahh0yzpY4T1/E/7dJ6AlYIu7j1bYX9e3/vPmWgRTPBCz7AhWyZTyFIQDJ1oKBxkqjsL1z55fB3EN3pgNcQO4ujHuIPPPITTMhhgIZADVGtNjwEuLMcFp7RtDd/0/PM7MO8/vvlTLKc07lLbia232H5dTeWaHKfF+aiSGeDvIxnZpLlFTPi4Ic1mwD5UZqQWsIS8bepWM8K4F2u9XTFBm78enjVV+Bn35JJVWjoikatpbjbq0SwTLHkk+bUKZQJLZvI4Qim5lsSwk7JVKyToANETFZJG2Ht+btmCUiwc+4Ta+ELMWa2xmpg+w4Sf4sLGf9VSDJ01RWf/eb5yoRjaqI1jcJcc9mG+gxMaQtyj5m52LGQ6UZMsXudnk1BDnT1RDWEnz71dKhSuM4pRtZSvYA8K7Ilq/x/cqANunD02wym0wYJY9UYjF5F/yRsG18MmKAhbEwf7Cc1Gy3I1bhWWO4aJx0kceNAH3Yse7mP/Te7H9crF4/O579nv/MrNSclKiyN35oMCwMu+Xx9W0cO/fChaZZjx390riaZf+RrXYuvtMwypWjjDslq0SoBH/PidVqxN+sLS1p2djpIo/0EAnNo0bAuR/wG2N0VEwR+cpo/kvTUsy+aIuRHyUprSnMQ3wU6DQLE7cWL9SxBfW5pG42ADTwHhj5PNu9heq2IjY+xAc5aiUFw'
   notification-groups-url: https://android.googleapis.com/gcm/notification
   notification-send-url: https://fcm.googleapis.com/fcm/send
 swagger:
