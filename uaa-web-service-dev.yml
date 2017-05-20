@@ -1,12 +1,4 @@
-server:
-  port: 8183   # HTTP port
-  contextPath: /uaa 
-  
 spring:
-  profiles.default: default
----
-spring:
-    profiles: default
     # Disable Spring Boot basic authentication
     basic:
         enabled: false
@@ -54,14 +46,7 @@ spring:
                                 username: guest
                                 password: guest
                                 virtual-host: /
-# Discovery Server Access
-eureka:
-    instance:
-        statusPageUrlPath: ${server.contextPath}/info
-        healthCheckUrlPath: ${server.contextPath}/health
-    client:
-        serviceUrl:
-            defaultZone: http://localhost:8761/eureka/
+# Log Config
 logging:
   file: logs/${spring.application.name}.log
   level:
@@ -70,6 +55,7 @@ logging:
     org.springframework.web: DEBUG
     org.springframework.security: DEBUG
     sanchez.sergio: DEBUG
+# Swagger Config
 swagger:
   group-name: account
   path-mapping: /
@@ -79,37 +65,3 @@ swagger:
     version: 0.0.1-SNAPSHOT
     license: Open source licensing
     license-url: https://help.github.com/articles/open-source-licensing/
----
-spring:
-  profiles: docker
-# Datasource and JPA configuration to be used for storing the OAuth authorization details 
-# and token store
-datasource:
-  type: com.zaxxer.hikari.HikariDataSource
-  url: jdbc:mysql://mysql-service/auth
-  username: root
-  password: root
-  hikari:
-    data-source-properties:
-        cachePrepStmts: true
-        prepStmtCacheSize: 250
-        prepStmtCacheSqlLimit: 2048
-        useServerPrepStmts: true
-  driver-class: com.mysql.jdbc.Driver
-jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    database: MYSQL
-    show-sql: false
-    properties:
-        hibernate.id.new_generator_mappings: true
-        hibernate.cache.use_second_level_cache: false
-        hibernate.cache.use_query_cache: false
-        hibernate.generate_statistics: false
-eureka:
-# Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
-# one and the same hostname. Instead we configure them to use its IP address during registration with Eureka.
-  instance:
-    preferIpAddress: true
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-service/eureka/

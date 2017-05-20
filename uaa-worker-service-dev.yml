@@ -1,0 +1,24 @@
+spring:
+  profiles: default
+  # RabbitMQ configuration
+  rabbitmq:
+    host: 192.168.0.53
+    username: sergio
+    password: bisite00
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: account
+          group: account-group
+          contentType: 'application/json'
+          consumer:
+            durableSubscription: true
+# Log Config
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: INFO
+    org.springframework.web: INFO
+    com.microservices: DEBUG
