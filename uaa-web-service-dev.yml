@@ -9,6 +9,7 @@ spring:
         url: jdbc:h2:mem:testdb;MODE=MySQL;MV_STORE=FALSE;MVCC=FALSE
         username: sa
         driver-class: org.h2.Driver
+        platform: h2
     h2:
         console:
             enabled: true
@@ -33,7 +34,7 @@ spring:
                     userNotifications:
                         producer:
                             exchangeType: direct
-                            routingKeyExpression: '12345'
+                            routingKeyExpression: 'requestMessage.userId'
                             declareExchange: false
             binders:
                 rabbit1:
