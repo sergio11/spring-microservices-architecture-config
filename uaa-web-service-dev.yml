@@ -70,7 +70,7 @@ swagger:
 # LDAP configuration
 ldap:
   uri: ldap://192.168.1.42:389/dc=bisite,dc=net
-  admin-DN: cn=admin,dc=bisite,dc=net
+  admin-dn: cn=admin,dc=bisite,dc=net
   admin-password: '{cipher}AgCVpSWVbyV7iPn8DdW/q01qnyYZtRY9mteyWjXn4bmspIXwVZSoFDnDhymEVGsNSt2BOJegRv9lz01wREFvA1PYL5vdQkyHyI8atveSjGqW0uIPNbWzvDor/9K5hxl41RiW2t+YncPNPjTWNU7Rm3EtF/RljacwjwqLpzDCjMOOPISZyQOw6nZ7iKUOGaUpZQySAZ8xbanwNMY1V3mWGBW5KB45phoykpIJC7+HP0mtCi9Y3IFotOtyFii62O19r8cfUwmp1UIcwN4HHn7cRlwXKxu9S6fmboy4/s9K1SZlUwMk4jGWRXfHHjNcBZzzXeBP8eGZ4OtOPcxpmxfZ8xA8Aob6+GTCH5+l019ujHcfbzRtgZEtUUlHXTVR94AQKR0GhZ8WfR/oULXlL307F7/jqwnkyeFkHspINqDk5ev13i5hmSMHnTwahRqxGVMVwqhy1wlE2mi/IaSHpZVuVlNeGbH2VNSqSxPUhCJQ9XlUEIt7O/C7UrD/NfVP7qwWrJnoc4LGttuVVRu8USGd4ZC1QqpixozGqHOHn4P1dk/gLNkGZaVLAt4JlSNyetRs8StjGOzYSKQ3Gd/6X5p/2ip8By2tAAta5ikXGNK8O5DkbmHAoGsu3rJgGpdMhOrC355iaI3YYnUfghMFPrfBS7bgD8MA1aNqhnDZTwX4aJSdfW7Niv6oo+Y0+Cd9YVUBMfB5phRXZc6cL3+ltbN303rU'
   search-base: ou=users
   search-filter: uid={0}
