@@ -55,6 +55,7 @@ logging:
     org.springframework.cloud: DEBUG
     org.springframework.web: DEBUG
     org.springframework.security: DEBUG
+    org.springframework.ldap: DEBUG
     sanchez.sergio: DEBUG
 # Swagger Config
 swagger:
