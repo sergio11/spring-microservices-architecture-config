@@ -7,12 +7,20 @@ spring:
                 userNotifications:
                     destination: users.direct
                     binder: rabbit1
+                usersManadgement:
+                    destination: admin.topic
+                    binder: rabbit1
             rabbit:
                 bindings:
                     userNotifications:
                         producer:
                             exchangeType: direct
                             routingKeyExpression: 'requestMessage.userId'
+                            declareExchange: false
+                    usersManadgement:
+                        producer:
+                            exchangeType: topic
+                            routingKeyExpression: admin.user
                             declareExchange: false
             binders:
                 rabbit1:
