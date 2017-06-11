@@ -20,7 +20,7 @@ spring:
                     usersManadgement:
                         producer:
                             exchangeType: topic
-                            routingKeyExpression: 'admin.user'
+                            routingKeyExpression: "admin.user"
                             declareExchange: false
             binders:
                 rabbit1:
