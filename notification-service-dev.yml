@@ -33,7 +33,7 @@ rabbitmq:
     queues:
       users:
         name: users_manadgement
-        routing-key: admin.user
+        routing-key: admin_user
   direct-exchange:
     name: users.direct
     durable: true
